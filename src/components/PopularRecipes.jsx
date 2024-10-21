@@ -3,6 +3,7 @@ import useFetchRecipes from "../hooks/useFetchRecipes";
 import { TfiTimer } from "react-icons/tfi";
 import { GoPeople } from "react-icons/go";
 import { HiOutlineFlag } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 
 export default function PopularRecipes() {
   const { recipes } = useFetchRecipes(9);
@@ -15,7 +16,10 @@ export default function PopularRecipes() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {recipes.map((recipe) => {
           return (
-            <div className="bg-base-200 border border-base-300 rounded shadow-sm">
+            <Link
+              to={`/recipe/${recipe.id}`}
+              className="bg-base-100 border border-base-200 rounded shadow-sm"
+            >
               <img
                 src={recipe.image}
                 alt={recipe.name}
@@ -37,7 +41,7 @@ export default function PopularRecipes() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
