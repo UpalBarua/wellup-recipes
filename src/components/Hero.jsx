@@ -1,26 +1,13 @@
 import React from "react";
 import { HiTrendingUp } from "react-icons/hi";
-import { useEffect, useState } from "react";
+import useFetchRecipes from "../hooks/useFetchRecipes";
 
 export default function Hero() {
-  const [topRecipes, setTopRecipes] = useState([]);
-
-  useEffect(() => {
-    async function fetchTopRecipes() {
-      const response = await fetch("https://dummyjson.com/recipes?limit=5");
-      const data = await response.json();
-
-      if (data) {
-        setTopRecipes(data.recipes);
-      }
-    }
-
-    fetchTopRecipes();
-  }, []);
+  const { recipes } = useFetchRecipes(5);
 
   return (
     <div className="carousel w-full">
-      {topRecipes?.map((recipe) => {
+      {recipes.map((recipe) => {
         return (
           <div
             id={"slide" + recipe.id}
