@@ -19,7 +19,7 @@ export default function Hero() {
             />
             <div className="absolute bg-black/50 text-white inset-0 flex items-center justify-center -mt-[18rem] md:-mt-0 flex-col">
               <span className="flex items-center gap-2 text-xl pb-6">
-                <HiTrendingUp className="size-8" />
+                <HiTrendingUp className="size-7" />
                 85% would make this again.
               </span>
               <h1 className="lg:text-6xl text-3xl md:text-5xl font-extrabold tracking-tight pb-4">
