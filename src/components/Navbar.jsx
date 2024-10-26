@@ -1,6 +1,7 @@
 import React from "react";
 import { IoFastFoodSharp } from "react-icons/io5";
 import { FaUserAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -28,36 +29,36 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a>Recipes</a>
+              <Link to="/recipes">Recipes</Link>
             </li>
             <li>
-              <a>Favourites</a>
+              <Link to="/favourites">Favourites</Link>
             </li>
             <li>
-              <a>About Us</a>
+              <Link to="/about-us">About Us</Link>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">
+        <Link to="/" className="btn btn-ghost text-xl">
           <IoFastFoodSharp className="text-primary size-8" /> Wellup Recipes
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a>Recipes</a>
+            <Link to="/recipes">Recipes</Link>
           </li>
           <li>
-            <a>Favourites</a>
+            <Link to="/favourites">Favourites</Link>
           </li>
           <li>
-            <a>About Us</a>
+            <Link to="/about-us">About Us</Link>
           </li>
         </ul>
       </div>

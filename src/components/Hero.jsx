@@ -10,6 +10,7 @@ export default function Hero() {
       {recipes.map((recipe) => {
         return (
           <div
+            key={recipe.id}
             id={"slide" + recipe.id}
             className="carousel-item relative w-full"
           >

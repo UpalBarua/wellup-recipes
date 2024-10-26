@@ -4,7 +4,7 @@ export default function useFetchRecipes(limit = 0) {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    async function fetchTopRecipes() {
+    async function fetchRecipes() {
       const response = await fetch(
         `https://dummyjson.com/recipes?limit=${limit}`
       );
@@ -15,7 +15,7 @@ export default function useFetchRecipes(limit = 0) {
       }
     }
 
-    fetchTopRecipes();
+    fetchRecipes();
   }, []);
 
   return {
