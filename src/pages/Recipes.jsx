@@ -1,6 +1,6 @@
 import useFetchRecipes from "../hooks/useFetchRecipes";
 import RecipeCard from "../components/RecipeCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Recipes() {
   const { recipes } = useFetchRecipes();
@@ -16,6 +16,10 @@ export default function Recipes() {
 
     setFileteredRecipes(result);
   }
+
+  useEffect(() => {
+    setFileteredRecipes(recipes);
+  }, [recipes]);
 
   return (
     <div className="pt-5 pb-10 container mx-auto px-2">
@@ -39,16 +43,17 @@ export default function Recipes() {
         </form>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {fileteredRecipes.length === 0 && searchText ? (
-          <span>nothing found</span>
-        ) : null}
-        {(fileteredRecipes.length ? fileteredRecipes : recipes).map(
-          (recipe) => {
+      {fileteredRecipes.length ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {fileteredRecipes.map((recipe) => {
             return <RecipeCard key={recipe.name} recipe={recipe} />;
-          }
-        )}
-      </div>
+          })}
+        </div>
+      ) : (
+        <div className="min-h-96 text-center pt-10 text-2xl">
+          <span>No Recipes Found</span>
+        </div>
+      )}
     </div>
   );
 }
